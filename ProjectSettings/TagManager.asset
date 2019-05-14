@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Cloud
   - Deadly Cloud
+  - Background
+  - Bounds
+  - Life
+  - Coin
   layers:
   - Default
   - TransparentFX
