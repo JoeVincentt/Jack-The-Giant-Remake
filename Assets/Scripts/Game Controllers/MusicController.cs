@@ -1,0 +1,52 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MusicController : MonoBehaviour
+{
+      public static MusicController instance;
+      private AudioSource audioSource;
+
+
+      private void Awake()
+      {
+            MakeSingleton();
+            audioSource = GetComponent<AudioSource>();
+
+      }
+      private void Start()
+      {
+
+      }
+
+      public void PlayMusic(bool play)
+      {
+            if (play)
+            {
+                  if (!audioSource.isPlaying)
+                  {
+                        audioSource.Play();
+                  }
+            }
+            else
+            {
+                  if (audioSource.isPlaying)
+                  {
+                        audioSource.Stop();
+                  }
+            }
+      }
+
+      private void MakeSingleton()
+      {
+            if (instance != null)
+            {
+                  Destroy(gameObject);
+            }
+            else
+            {
+                  instance = this;
+                  DontDestroyOnLoad(gameObject);
+            }
+      }
+}
